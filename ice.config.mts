@@ -6,5 +6,5 @@ export default defineConfig(() => ({
   // Set your configs here.
   minify,
   outputDir: 'dist',
-  publicPath: '/',
+  publicPath: '/for-love/',
 }));
