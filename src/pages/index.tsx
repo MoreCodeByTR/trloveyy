@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import background from '@/assets/image.png';
 import styles from './index.module.css';
 import { Visible } from '@/components/Visible';
+import { history } from 'ice';
 
 export default function WeddingPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -44,8 +45,7 @@ export default function WeddingPage() {
   ];
 
   const handleMenuClick = (link: string) => {
-    // 使用简单的页面跳转
-    window.location.href = link;
+    history?.push(link);
   };
 
   const handleEnterClick = () => {
