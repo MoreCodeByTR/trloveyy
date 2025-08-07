@@ -8,6 +8,7 @@
 /build
 
 /dist
+/for-love
 
 # misc
 .DS_Store

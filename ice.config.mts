@@ -5,6 +5,6 @@ const minify = false;
 export default defineConfig(() => ({
   // Set your configs here.
   minify,
-  outputDir: 'dist',
+  outputDir: 'for-love',
   publicPath: '/for-love/',
 }));
