@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { Countdown } from '@/components/Countdown';
 import background from '@/assets/image.png';
 import styles from './index.module.css';
 import { Visible } from '@/components/Visible';
@@ -8,6 +9,9 @@ export default function WeddingPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showMenus, setShowMenus] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const targetDate = useMemo(() => new Date('2025-10-02T00:00:00+08:00'), []);
+
+  // 倒计时逻辑已封装到 Countdown 组件
 
   useEffect(() => {
     setIsLoaded(true);
@@ -24,7 +28,7 @@ export default function WeddingPage() {
     {
       id: 'wedding-photos',
       title: 'Wedding Photos',
-      subtitle: '婚礼照片',
+      subtitle: '婚纱照',
       icon: '📸',
       link: '/wedding-photos',
     },
@@ -61,6 +65,9 @@ export default function WeddingPage() {
       <div className={styles.imageWrapper}>
         <img src={background} alt="Wedding Background" className={`${styles.backgroundImage} ${isLoaded ? styles.loaded : ''}`} />
         <div className={`${styles.overlay} ${isLoaded ? styles.loaded : ''}`}>
+          <div className={styles.countdown}>
+            <Countdown targetDate={targetDate} />
+          </div>
           <div className={styles.content}>
             <Visible when={!showMenus}>
               <h1 className={`${styles.title} ${isLoaded ? styles.loaded : ''}`}>我们的婚礼</h1>
@@ -71,6 +78,7 @@ export default function WeddingPage() {
                 <button onClick={handleEnterClick} className={styles.enterBtn}>
                   走进ta们的婚礼
                 </button>
+
               </div>
             ) : (
               <div className={`${styles.menuGrid} ${showMenus ? styles.show : ''}`}>

@@ -1,7 +1,7 @@
 .container {
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,6 +107,15 @@
   transform: translateY(0);
 }
 
+.countdown {
+  position: fixed;
+  bottom: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .enterButton {
   opacity: 0;
   transform: translateY(30px);
@@ -144,6 +153,8 @@
 .enterBtn:active {
   transform: translateY(-1px);
 }
+
+/* 首页不再维护倒计时样式，改为使用组件内样式 */
 
 .menuGrid {
   display: grid;
@@ -315,7 +326,13 @@
   .content {
     padding: 20px;
   }
-  
+
+  .countdown {
+    top: 40px;
+    bottom: unset;
+  }
+
+
   .enterBtn {
     padding: 15px 30px;
     font-size: 1.1rem;
@@ -366,6 +383,11 @@
   .enterBtn {
     padding: 12px 25px;
     font-size: 1rem;
+  }
+
+  .countdown {
+    top: 40px;
+    bottom: unset;
   }
   
   .menuItem {
