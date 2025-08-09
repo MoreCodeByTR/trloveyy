@@ -45,9 +45,9 @@
   margin: 0 auto;
 }
 
-.videoGrid {
+.photoGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
   opacity: 0;
   transform: translateY(40px);
@@ -55,12 +55,12 @@
   transition-delay: 0.4s;
 }
 
-.videoGrid.loaded {
+.photoGrid.loaded {
   opacity: 1;
   transform: translateY(0);
 }
 
-.videoCard {
+.photoCard {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -71,136 +71,84 @@
   cursor: pointer;
 }
 
-.videoCard:hover {
+.photoCard:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
-.videoCard.playing {
+.photoCard.selected {
   transform: translateY(-15px) scale(1.05);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
 }
 
-.videoThumbnail {
+.photoPlaceholder {
   height: 200px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   overflow: hidden;
 }
 
-.thumbnailEmoji {
+.photoEmoji {
   font-size: 4rem;
   transition: transform 0.3s ease;
 }
 
-.videoCard:hover .thumbnailEmoji {
+.photoCard:hover .photoEmoji {
   transform: scale(1.2);
 }
 
-.playButton {
+.photoOverlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
   opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.videoCard:hover .playButton {
+.photoCard:hover .photoOverlay {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1.1);
 }
 
-.duration {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+.viewButton {
   background: rgba(255, 255, 255, 0.9);
   color: #2c3e50;
-  padding: 4px 12px;
-  border-radius: 15px;
-  font-size: 0.8rem;
+  padding: 10px 20px;
+  border-radius: 20px;
   font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 
-.videoInfo {
+.viewButton:hover {
+  background: white;
+  transform: scale(1.05);
+}
+
+.photoInfo {
   padding: 20px;
 }
 
-.videoInfo h3 {
+.photoInfo h3 {
   font-size: 1.3rem;
   font-weight: 500;
   margin: 0 0 8px 0;
   color: #2c3e50;
 }
 
-.videoInfo p {
+.photoInfo p {
   font-size: 0.9rem;
   color: #7f8c8d;
   margin: 0;
   line-height: 1.5;
-}
-
-.videoPlayer {
-  padding: 20px;
-  background: rgba(102, 126, 234, 0.1);
-  border-top: 1px solid rgba(102, 126, 234, 0.2);
-  animation: slideDown 0.3s ease;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.playerPlaceholder {
-  text-align: center;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 15px;
-  border: 2px dashed rgba(102, 126, 234, 0.3);
-}
-
-.playerIcon {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  display: block;
-}
-
-.playerPlaceholder p {
-  color: #7f8c8d;
-  font-size: 1rem;
-  margin: 0;
 }
 
 .backButton {
@@ -238,23 +186,17 @@
     font-size: 1.1rem;
   }
   
-  .videoGrid {
-    grid-template-columns: 1fr;
+  .photoGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
   }
   
-  .videoThumbnail {
+  .photoPlaceholder {
     height: 150px;
   }
   
-  .thumbnailEmoji {
+  .photoEmoji {
     font-size: 3rem;
-  }
-  
-  .playButton {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
   }
   
   .backButton {
@@ -263,4 +205,5 @@
     padding: 10px 20px;
     font-size: 0.9rem;
   }
-} 
+}
+

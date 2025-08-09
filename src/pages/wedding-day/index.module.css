@@ -41,64 +41,142 @@
 }
 
 .content {
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.storySection {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+.scheduleContainer {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.4s;
 }
 
-.storySection.loaded {
+.scheduleContainer.loaded {
   opacity: 1;
   transform: translateY(0);
 }
 
-.storyCard {
+.scheduleItem {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 25px;
+  cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-.storyCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+.scheduleItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.storyIcon {
-  font-size: 3rem;
-  margin-bottom: 20px;
+.scheduleItem.active {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.timeBadge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 15px;
+  padding: 12px 16px;
+  min-width: 80px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.scheduleItem:hover .timeBadge {
+  transform: scale(1.05);
+}
+
+.time {
   display: block;
+}
+
+.itemContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.itemIcon {
+  font-size: 2.5rem;
   transition: transform 0.3s ease;
 }
 
-.storyCard:hover .storyIcon {
+.scheduleItem:hover .itemIcon {
   transform: scale(1.1);
 }
 
-.storyCard h3 {
-  font-size: 1.5rem;
+.itemText {
+  flex: 1;
+}
+
+.itemText h3 {
+  font-size: 1.4rem;
   font-weight: 500;
-  margin: 0 0 15px 0;
+  margin: 0 0 5px 0;
   color: #2c3e50;
 }
 
-.storyCard p {
+.itemDescription {
   font-size: 1rem;
-  line-height: 1.6;
   color: #7f8c8d;
   margin: 0;
+  line-height: 1.4;
+}
+
+.itemDetails {
+  font-size: 0.9rem;
+  color: #95a5a6;
+  margin: 10px 0 0 0;
+  line-height: 1.5;
+  padding-top: 10px;
+  border-top: 1px solid rgba(149, 165, 166, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.itemArrow {
+  font-size: 1.5rem;
+  color: #7f8c8d;
+  font-weight: 300;
+  transition: all 0.3s ease;
+  min-width: 20px;
+  text-align: center;
+}
+
+.scheduleItem:hover .itemArrow {
+  color: #2c3e50;
+}
+
+.scheduleItem.active .itemArrow {
+  color: #667eea;
+  transform: rotate(180deg);
 }
 
 .backButton {
@@ -136,13 +214,27 @@
     font-size: 1.1rem;
   }
   
-  .storySection {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .scheduleItem {
+    padding: 20px;
+    gap: 15px;
   }
   
-  .storyCard {
-    padding: 25px;
+  .timeBadge {
+    padding: 10px 12px;
+    min-width: 70px;
+    font-size: 0.8rem;
+  }
+  
+  .itemIcon {
+    font-size: 2rem;
+  }
+  
+  .itemText h3 {
+    font-size: 1.2rem;
+  }
+  
+  .itemDescription {
+    font-size: 0.9rem;
   }
   
   .backButton {
@@ -151,4 +243,5 @@
     padding: 10px 20px;
     font-size: 0.9rem;
   }
-} 
+}
+

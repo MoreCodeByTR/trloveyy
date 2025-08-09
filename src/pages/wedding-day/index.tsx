@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from './wedding-day.module.css';
+import styles from './index.module.css';
 
 export default function WeddingDayPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -111,3 +111,4 @@ export default function WeddingDayPage() {
     </div>
   );
 }
+

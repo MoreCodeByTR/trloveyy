@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from './our-story.module.css';
+import styles from './index.module.css';
 
 export default function OurStoryPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -47,3 +47,4 @@ export default function OurStoryPage() {
     </div>
   );
 }
+

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from './vlog.module.css';
+import styles from './index.module.css';
 
 export default function VlogPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -119,3 +119,4 @@ export default function VlogPage() {
     </div>
   );
 }
+
