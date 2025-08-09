@@ -22,28 +22,28 @@ export default function WeddingPage() {
       id: 'our-story',
       title: 'Our Story',
       subtitle: '我们的故事',
-      icon: '💕',
+      icon: 'https://wx-love-img.afunapp.com/FjVDrmUmwJc4OLNEPtXZzoXNw0m2',
       link: '/our-story',
     },
     {
       id: 'wedding-photos',
       title: 'Wedding Photos',
       subtitle: '婚纱照',
-      icon: '📸',
+      icon: 'https://wx-love-img.afunapp.com/FhxJDlyYUgWuTJuXUnU50LLV_L_D',
       link: '/wedding-photos',
     },
     {
       id: 'wedding-day',
       title: 'Wedding Day',
       subtitle: '婚礼当天',
-      icon: '💒',
+      icon: 'https://wx-love-img.afunapp.com/FutnlW919EqqqgFyFAHV8Pf1qffi',
       link: '/wedding-day',
     },
     {
       id: 'vlog',
       title: 'Vlog',
       subtitle: '婚礼视频',
-      icon: '🎬',
+      icon: 'https://wx-love-img.afunapp.com/FgNwuyEM4H5sA7ISa-jb4BTSj5BE',
       link: '/vlog',
     },
   ];
@@ -65,9 +65,11 @@ export default function WeddingPage() {
       <div className={styles.imageWrapper}>
         <img src={background} alt="Wedding Background" className={`${styles.backgroundImage} ${isLoaded ? styles.loaded : ''}`} />
         <div className={`${styles.overlay} ${isLoaded ? styles.loaded : ''}`}>
-          <div className={styles.countdown}>
-            <Countdown targetDate={targetDate} />
-          </div>
+          <Visible when={!showMenus}>
+            <div className={styles.countdown}>
+              <Countdown targetDate={targetDate} />
+            </div>
+          </Visible>
           <div className={styles.content}>
             <Visible when={!showMenus}>
               <h1 className={`${styles.title} ${isLoaded ? styles.loaded : ''}`}>我们的婚礼</h1>
@@ -78,7 +80,9 @@ export default function WeddingPage() {
                 <button onClick={handleEnterClick} className={styles.enterBtn}>
                   走进ta们的婚礼
                 </button>
-
+                <div style={{ position: 'absolute', top: '0px', right: '-60px' }}>
+                  <img src="https://wx-love-img.afunapp.com/FnML4Rrd2c5InXAv60yskq2XXPG5" alt="logo" width={100} />
+                </div>
               </div>
             ) : (
               <div className={`${styles.menuGrid} ${showMenus ? styles.show : ''}`}>
@@ -91,7 +95,9 @@ export default function WeddingPage() {
                     onMouseLeave={() => setHoveredMenu(null)}
                     onClick={() => handleMenuClick(item.link)}
                   >
-                    <div className={styles.menuIcon}>{item.icon}</div>
+                    <div className={styles.menuIcon}>
+                      <img src={item.icon} alt={item.title} width={100} />
+                    </div>
                     <div className={styles.menuContent}>
                       <h3 className={styles.menuTitle}>{item.title}</h3>
                       <p className={styles.menuSubtitle}>{item.subtitle}</p>

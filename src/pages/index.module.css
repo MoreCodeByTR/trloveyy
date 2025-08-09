@@ -72,6 +72,10 @@
   padding: 40px;
   max-width: 800px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
@@ -117,10 +121,13 @@
 }
 
 .enterButton {
+  position: relative;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.6s;
+  width: fit-content;
+  padding: 10px 20px;
 }
 
 .enterButton.loaded {
@@ -213,6 +220,7 @@
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transition: left 0.6s ease;
+
 }
 
 .menuItem:hover::before {
