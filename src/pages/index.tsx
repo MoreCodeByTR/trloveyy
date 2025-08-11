@@ -3,19 +3,26 @@ import { Countdown } from '@/components/Countdown';
 import background from '@/assets/image.png';
 import styles from './index.module.css';
 import { Visible } from '@/components/Visible';
-import { history } from 'ice';
+import { history, useSearchParams } from 'ice';
 
 export default function WeddingPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showMenus, setShowMenus] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const targetDate = useMemo(() => new Date('2025-10-02T00:00:00+08:00'), []);
+  const [searchParams] = useSearchParams();
 
   // 倒计时逻辑已封装到 Countdown 组件
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  useEffect(() => {
+    if (searchParams.get('showMenus') === 'true') {
+      setShowMenus(true);
+    }
+  }, [searchParams]);
 
   const menuItems = [
     {

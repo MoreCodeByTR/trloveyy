@@ -1,5 +1,5 @@
 .countdown {
-  width: 280px;
+  min-width: 280px;
   justify-content: space-around;
   margin-top: 16px;
   display: inline-flex;
@@ -39,7 +39,7 @@
 
 @media (max-width: 480px) {
   .countdown {
-    width: 240px;
+    min-width: 240px;
     gap: 8px;
     padding: 8px 12px;
   }
