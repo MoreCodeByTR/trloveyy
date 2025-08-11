@@ -26,6 +26,13 @@ export default function WeddingPage() {
 
   const menuItems = [
     {
+      id: 'wedding-day',
+      title: 'Wedding Day',
+      subtitle: '婚礼日期地点',
+      icon: 'https://wx-love-img.afunapp.com/FutnlW919EqqqgFyFAHV8Pf1qffi',
+      link: '/wedding-day',
+    },
+    {
       id: 'our-story',
       title: 'Our Story',
       subtitle: '我们的故事',
@@ -38,13 +45,6 @@ export default function WeddingPage() {
       subtitle: '婚纱照',
       icon: 'https://wx-love-img.afunapp.com/FhxJDlyYUgWuTJuXUnU50LLV_L_D',
       link: '/wedding-photos',
-    },
-    {
-      id: 'wedding-day',
-      title: 'Wedding Day',
-      subtitle: '婚礼当天',
-      icon: 'https://wx-love-img.afunapp.com/FutnlW919EqqqgFyFAHV8Pf1qffi',
-      link: '/wedding-day',
     },
     {
       id: 'vlog',

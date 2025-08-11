@@ -4,6 +4,8 @@
   "description": "欢迎参加我们的婚礼",
   "dependencies": {
     "@ice/runtime": "^1.4.0",
+    "antd-mobile": "^5.39.0",
+    "copy-to-clipboard": "^3.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "swiper": "^11.2.10",

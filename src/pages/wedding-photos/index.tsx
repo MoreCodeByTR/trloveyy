@@ -41,8 +41,8 @@ export default function WeddingPhotosPage() {
       { id: 4, title: '婚纱照 4', description: '自然与纯粹', src: photo07 },
       { id: 5, title: '婚纱照 5', description: '彼此的眼神', src: photo04 },
       { id: 6, title: '婚纱照 6', description: '细节与质感', src: photo05 },
-      { id: 7, title: '婚纱照 1', description: '浪漫的婚纱摄影', src: photo06 },
-      { id: 8, title: '婚纱照 3', description: '温柔与笑意', src: photo08 },
+      { id: 7, title: '婚纱照 7', description: '浪漫的婚纱摄影', src: photo06 },
+      { id: 8, title: '婚纱照 8', description: '温柔与笑意', src: photo08 },
     ],
     [],
   );
