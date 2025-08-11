@@ -1,22 +1,31 @@
-.container {
-  min-height: 100vh;
+.wapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: auto;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+
+.container {
+  max-width: 600px;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mainBkg {
+  width: 100%;
+  object-fit: cover;
 }
 
 /* 欢迎图 */
 .welcomeImage {
   position: relative;
   width: 100%;
-  height: 60vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -25,22 +34,13 @@
   transform: translateY(0);
 }
 
-.welcomeImage::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hearts" patternUnits="userSpaceOnUse" width="20" height="20"><path d="M10,6 C10,6 8,4 6,4 C4,4 2,6 2,8 C2,10 4,12 6,12 C8,12 10,10 10,10 C10,10 12,12 14,12 C16,12 18,10 18,8 C18,6 16,4 14,4 C12,4 10,6 10,6 Z" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23hearts)"/></svg>');
-  opacity: 0.3;
-}
-
 .welcomeOverlay {
+  width: 100%;
+  position: absolute;
+  bottom:20px;
   text-align: center;
   color: white;
   z-index: 2;
-  position: relative;
 }
 
 .welcomeTitle {
@@ -205,192 +205,6 @@
   gap: 15px;
   flex: 1;
 }
-/* 板块样式 */
-.section {
-  padding: 40px 20px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.section.loaded {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section:nth-child(3) {
-  transition-delay: 0.3s;
-}
-
-.section:nth-child(4) {
-  transition-delay: 0.4s;
-}
-
-.section:nth-child(5) {
-  transition-delay: 0.5s;
-}
-
-.sectionTitle {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin: 0 0 40px 0;
-  position: relative;
-}
-
-.sectionTitle::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  border-radius: 2px;
-}
-
-/* 流程容器 */
-.scheduleContainer {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.scheduleItem {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 25px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.scheduleItem:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.timeBadge {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  min-width: 80px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-}
-
-.time {
-  display: block;
-}
-
-.itemContent {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex: 1;
-}
-
-.itemIcon {
-  font-size: 2.5rem;
-  width: 60px;
-  text-align: center;
-}
-
-.itemText {
-  flex: 1;
-}
-
-.itemTitle {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin: 0 0 8px 0;
-}
-
-.itemDescription {
-  font-size: 1rem;
-  color: #7f8c8d;
-  margin: 0 0 6px 0;
-}
-
-.itemDetails {
-  font-size: 0.9rem;
-  color: #95a5a6;
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* 婚宴流程 */
-.banquetContainer {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.banquetItem {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 25px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.banquetItem:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.banquetTime {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 1rem;
-  display: inline-block;
-  margin-bottom: 15px;
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-}
-
-.banquetIcon {
-  font-size: 3rem;
-  margin-bottom: 15px;
-}
-
-.banquetTitle {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin: 0 0 8px 0;
-}
-
-.banquetDescription {
-  font-size: 0.9rem;
-  color: #7f8c8d;
-  margin: 0;
-  line-height: 1.4;
-}
-
 /* 返回按钮 */
 .backButton {
   position: fixed;
@@ -417,10 +231,6 @@
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .welcomeImage {
-    height: 50vh;
-  }
-  
   .welcomeTitle {
     font-size: 2.2rem;
   }
@@ -512,10 +322,6 @@
 }
 
 @media (max-width: 480px) {
-  .welcomeImage {
-    height: 40vh;
-  }
-  
   .welcomeTitle {
     font-size: 1.8rem;
   }

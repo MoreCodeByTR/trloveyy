@@ -48,99 +48,104 @@ export default function WeddingDayPage() {
   };
 
   return (
-    <div className={styles.container}>
-      {/* 欢迎图 */}
-      <div className={`${styles.welcomeImage} ${isLoaded ? styles.loaded : ''}`}>
-        <div className={styles.welcomeOverlay}>
-          <h1 className={styles.welcomeTitle}>欢迎参加我们的婚礼</h1>
-          <p className={styles.welcomeSubtitle}>Welcome to Our Wedding</p>
-        </div>
-      </div>
-
-      {/* 婚礼基本信息 */}
-      <div className={`${styles.weddingInfo} ${isLoaded ? styles.loaded : ''}`}>
-        <div className={styles.infoCard}>
-          <div className={styles.infoHeader}>
-            <h2 className={styles.infoTitle}>婚礼信息</h2>
-            <div className={styles.infoIcon}>💒</div>
-          </div>
-
-          <div className={styles.infoContent}>
-            <div className={styles.infoRow}>
-              <span className={styles.infoLabel}>日期：{weddingInfo.date} {weddingInfo.time}</span>
-            </div>
-            <div className={styles.infoRow}>
-              <span className={styles.infoLabel}>地点：湖北 黄冈</span>
-            </div>
+    <div className={styles.wapper}>
+      <div className={styles.container}>
+        {/* 欢迎图 */}
+        <div className={`${styles.welcomeImage} ${isLoaded ? styles.loaded : ''}`}>
+          <img src="https://wx-love-img.afunapp.com/FpAWUCgFpwSRAZ5P-pL-F-vKbbwm" className={styles.mainBkg} alt="welcome" />
+          <div className={styles.welcomeOverlay}>
+            <h1 className={styles.welcomeTitle}>欢迎参加我们的婚礼</h1>
+            <p className={styles.welcomeSubtitle}>Welcome to Our Wedding</p>
           </div>
         </div>
-        {/* 新娘家信息 */}
-        <div className={`${styles.locationCard} ${isLoaded ? styles.loaded : ''}`}>
-          <div className={styles.locationHeader}>
-            <h3 className={styles.locationTitle}>
-              {brideInfo.title} {brideInfo.contact}
-            </h3>
-            <div className={styles.locationIcon}>🏠</div>
-          </div>
-          <div className={styles.locationContent}>
-            <div className={styles.addressContainer}>
-              <span style={{ marginRight: '6px' }}>
-                <img src="https://wx-love-img.afunapp.com/Fqn_d1wxD1Bw0UxoEfC34jYeTp3j" width={20} />
-              </span>
-              <span className={styles.locationValue}>{brideInfo.address}</span>
-              <span onClick={() => handleCopyAddress(brideInfo.address)}>
-                <img src="https://wx-love-img.afunapp.com/FgbnngKRt5fQGxiIwLaiUtwqymww" width={20} />
-              </span>
+
+        {/* 婚礼基本信息 */}
+        <div className={`${styles.weddingInfo} ${isLoaded ? styles.loaded : ''}`}>
+          <div className={styles.infoCard}>
+            <div className={styles.infoHeader}>
+              <h2 className={styles.infoTitle}>婚礼信息</h2>
+              <div className={styles.infoIcon}>💒</div>
             </div>
-            <div className={styles.locationRow}>
-              <span>
-                <img src="https://wx-love-img.afunapp.com/FmiFIjtQ9ir6MN0PLItjBfrGFsDP" width={20} />
-              </span>
-              <span className={styles.locationValue} onClick={() => handleCopyPhone(brideInfo.phone)}>
-                {brideInfo.phone}
-                <span onClick={() => handleCopyPhone(brideInfo.phone)}>
+
+            <div className={styles.infoContent}>
+              <div className={styles.infoRow}>
+                <span className={styles.infoLabel}>日期：{weddingInfo.date} {weddingInfo.time}</span>
+              </div>
+              <div className={styles.infoRow}>
+                <span className={styles.infoLabel}>地点：湖北 黄冈</span>
+              </div>
+            </div>
+          </div>
+          {/* 新娘家信息 */}
+          <div className={`${styles.locationCard} ${isLoaded ? styles.loaded : ''}`}>
+            <div className={styles.locationHeader}>
+              <h3 className={styles.locationTitle}>
+                {brideInfo.title}
+              </h3>
+              <div className={styles.locationIcon}>🏠</div>
+            </div>
+            <div className={styles.locationContent}>
+              <div className={styles.addressContainer}>
+                <span style={{ marginRight: '6px' }}>
+                  <img src="https://wx-love-img.afunapp.com/Fqn_d1wxD1Bw0UxoEfC34jYeTp3j" width={20} />
+                </span>
+                <span className={styles.locationValue}>{brideInfo.address}</span>
+                <span onClick={() => handleCopyAddress(brideInfo.address)}>
                   <img src="https://wx-love-img.afunapp.com/FgbnngKRt5fQGxiIwLaiUtwqymww" width={20} />
                 </span>
-              </span>
+              </div>
+              <div className={styles.locationRow}>
+                <span>
+                  <img src="https://wx-love-img.afunapp.com/FmiFIjtQ9ir6MN0PLItjBfrGFsDP" width={20} />
+                </span>
+                <span className={styles.locationValue} onClick={() => handleCopyPhone(brideInfo.phone)}>
+                  {brideInfo.phone}
+                  <span onClick={() => handleCopyPhone(brideInfo.phone)}>
+                    <img src="https://wx-love-img.afunapp.com/FgbnngKRt5fQGxiIwLaiUtwqymww" width={20} />
+                  </span>
+                </span>
+              </div>
             </div>
           </div>
-        </div>
 
 
-        {/* 新郎家信息 */}
-        <div className={`${styles.locationCard} ${isLoaded ? styles.loaded : ''}`}>
-          <div className={styles.locationHeader}>
-            <h3 className={styles.locationTitle}>{groomInfo.title} {groomInfo.contact}</h3>
-            <div className={styles.locationIcon}>🏠</div>
-          </div>
-          <div className={styles.locationContent}>
-            <div className={styles.addressContainer}>
-              <span style={{ marginRight: '6px' }}>
-                <img src="https://wx-love-img.afunapp.com/Fqn_d1wxD1Bw0UxoEfC34jYeTp3j" width={20} />
-              </span>
-              <span className={styles.locationValue}>{groomInfo.address}</span>
-              <span onClick={() => handleCopyAddress(groomInfo.address)}>
-                <img src="https://wx-love-img.afunapp.com/FgbnngKRt5fQGxiIwLaiUtwqymww" width={20} />
-              </span>
+          {/* 新郎家信息 */}
+          <div className={`${styles.locationCard} ${isLoaded ? styles.loaded : ''}`}>
+            <div className={styles.locationHeader}>
+              <h3 className={styles.locationTitle}>{groomInfo.title}</h3>
+              <div className={styles.locationIcon}>🏠</div>
             </div>
-            <div className={styles.locationRow}>
-              <span>
-                <img src="https://wx-love-img.afunapp.com/FmiFIjtQ9ir6MN0PLItjBfrGFsDP" width={20} />
-              </span>
-              <span className={styles.locationValue} onClick={() => handleCopyPhone(groomInfo.phone)}>
-                {groomInfo.phone}
-                <span onClick={() => handleCopyPhone(groomInfo.phone)}>
+            <div className={styles.locationContent}>
+              <div className={styles.addressContainer}>
+                <span style={{ marginRight: '6px' }}>
+                  <img src="https://wx-love-img.afunapp.com/Fqn_d1wxD1Bw0UxoEfC34jYeTp3j" width={20} />
+                </span>
+                <span className={styles.locationValue}>{groomInfo.address}</span>
+                <span onClick={() => handleCopyAddress(groomInfo.address)}>
                   <img src="https://wx-love-img.afunapp.com/FgbnngKRt5fQGxiIwLaiUtwqymww" width={20} />
                 </span>
-              </span>
+              </div>
+              <div className={styles.locationRow}>
+                <span>
+                  <img src="https://wx-love-img.afunapp.com/FmiFIjtQ9ir6MN0PLItjBfrGFsDP" width={20} />
+                </span>
+                <span className={styles.locationValue} onClick={() => handleCopyPhone(groomInfo.phone)}>
+                  {groomInfo.phone}
+                  <span onClick={() => handleCopyPhone(groomInfo.phone)}>
+                    <img src="https://wx-love-img.afunapp.com/FgbnngKRt5fQGxiIwLaiUtwqymww" width={20} />
+                  </span>
+                </span>
+              </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
       <div className={styles.backButton} onClick={() => history?.push('/?showMenus=true')}>
         ← 返回首页
       </div>
     </div>
+
+
   );
 }
