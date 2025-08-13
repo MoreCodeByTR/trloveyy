@@ -73,4 +73,4 @@ const FallbackLightbox = ({
 };
 
 export default FallbackLightbox;
-export type { PhotoItem }; 
+export type { PhotoItem };

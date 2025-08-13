@@ -1,45 +1,99 @@
 import { useState, useEffect } from 'react';
 import styles from './index.module.css';
+import FallbackLightbox, { PhotoItem } from '../../components/FallbackLightbox';
 
 export default function OurStoryPage() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
+  const dailyPhotos: PhotoItem[] = [
+    {
+      id: 1,
+      title: '日常照片1',
+      description: '美好的回忆',
+      src: 'https://wx-love-img.afunapp.com/FrA_6hxQPjO-lvYtInfw_JCkUHpi',
+    },
+    {
+      id: 2,
+      title: '日常照片2',
+      description: '甜蜜时光',
+      src: 'https://wx-love-img.afunapp.com/FoCQ5usVUC9dgprLjI6MoQhsiuhJ',
+    },
+    {
+      id: 3,
+      title: '日常照片3',
+      description: '幸福瞬间',
+      src: 'https://wx-love-img.afunapp.com/Fsf3jZo4Ay7W08_AL9okYvLaR9rX',
+    },
+    {
+      id: 4,
+      title: '日常照片4',
+      description: '温馨时刻',
+      src: 'https://wx-love-img.afunapp.com/FvPmOCoiFk3p7sOVdquYBay00Eol',
+    },
+    {
+      id: 5,
+      title: '日常照片5',
+      description: '珍贵回忆',
+      src: 'https://wx-love-img.afunapp.com/FpDRj3TuNnAIRF6gan1CQuskscET',
+    },
+  ];
+
+  const handlePhotoClick = (index: number) => {
+    setCurrentPhotoIndex(index);
+    setIsLightboxOpen(true);
+  };
+
+  const handleCloseLightbox = () => {
+    setIsLightboxOpen(false);
+  };
+
+  const handlePhotoChange = (index: number) => {
+    setCurrentPhotoIndex(index);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h1 className={`${styles.title} ${isLoaded ? styles.loaded : ''}`}>
-          Our Story
+          恋爱日常
         </h1>
         <p className={`${styles.subtitle} ${isLoaded ? styles.loaded : ''}`}>
-          我们的爱情故事
+          记录我们在一起的每一个美好瞬间
         </p>
       </div>
 
       <div className={styles.content}>
-        <div className={`${styles.storySection} ${isLoaded ? styles.loaded : ''}`}>
-          <div className={styles.storyCard}>
-            <div className={styles.storyIcon}>💕</div>
-            <h3>初次相遇</h3>
-            <p>在那个阳光明媚的下午，我们在咖啡厅相遇了...</p>
-          </div>
-
-          <div className={styles.storyCard}>
-            <div className={styles.storyIcon}>🌹</div>
-            <h3>甜蜜时光</h3>
-            <p>一起走过的每一个瞬间，都是我们最珍贵的回忆...</p>
-          </div>
-
-          <div className={styles.storyCard}>
-            <div className={styles.storyIcon}>💍</div>
-            <h3>求婚时刻</h3>
-            <p>在星空下的浪漫求婚，那一刻我们决定携手一生...</p>
-          </div>
+        <div className={`${styles.photoGrid} ${isLoaded ? styles.loaded : ''}`}>
+          {dailyPhotos.map((photo, index) => (
+            <div
+              key={photo.id}
+              className={styles.photoCard}
+              style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => handlePhotoClick(index)}
+            >
+              <img
+                src={photo.src}
+                alt={photo.title}
+                className={styles.photo}
+              />
+            </div>
+          ))}
         </div>
       </div>
+
+      <FallbackLightbox
+        isOpen={isLightboxOpen}
+        onClose={handleCloseLightbox}
+        currentPhoto={currentPhotoIndex}
+        photos={dailyPhotos}
+        onPhotoChange={handlePhotoChange}
+      />
 
       <div className={styles.backButton} onClick={() => window.history.back()}>
         ← 返回首页
