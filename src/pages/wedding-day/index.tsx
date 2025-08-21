@@ -27,7 +27,7 @@ export default function WeddingDayPage() {
   const brideInfo = {
     title: '新娘家',
     address: '蕲春县彭思镇彭思村',
-    phone: '18671358292',
+    phone: '13872352191',
     contact: '游燕',
   };
 

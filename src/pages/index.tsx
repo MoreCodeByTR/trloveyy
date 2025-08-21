@@ -4,6 +4,7 @@ import background from '@/assets/image.png';
 import styles from './index.module.css';
 import { Visible } from '@/components/Visible';
 import { history, useSearchParams } from 'ice';
+import { useMusic } from './layout';
 
 export default function WeddingPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -11,6 +12,7 @@ export default function WeddingPage() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const targetDate = useMemo(() => new Date('2025-10-02T00:00:00+08:00'), []);
   const [searchParams] = useSearchParams();
+  const { playMusic } = useMusic();
 
   // 倒计时逻辑已封装到 Countdown 组件
 
@@ -61,6 +63,8 @@ export default function WeddingPage() {
 
   const handleEnterClick = () => {
     setShowMenus(true);
+    // 点击进入时播放音乐
+    playMusic();
   };
 
   const handleBackClick = () => {

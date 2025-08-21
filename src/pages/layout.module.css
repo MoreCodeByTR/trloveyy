@@ -1,0 +1,38 @@
+.musicPlayer {
+  position: fixed;
+  top: 20px;
+  right: 6px;
+  z-index: 99;
+  transition: all 0.3s ease;
+}
+
+.musicIcon {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.musicIcon img {
+  border-radius: 50%;
+}
+
+/* 播放时旋转动画 */
+.musicIcon.playing img {
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .musicPlayer {
+    top: 0px;
+    padding: 12px;
+  }
+}

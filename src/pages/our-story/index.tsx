@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './index.module.css';
 import FallbackLightbox, { PhotoItem } from '../../components/FallbackLightbox';
+import { formatImgUrl } from '@/utils';
 
 const dailyPhotos = [
   'https://wx-love-img.afunapp.com/FhhS5m0e0215GRMAUCS97_Y5uauw',
@@ -57,7 +58,7 @@ export default function OurStoryPage() {
         <div className={`${styles.photoGrid} ${isLoaded ? styles.loaded : ''}`}>
           {dailyPhotos.map((url, index) => (
             <div className={styles.photoCard} style={{ animationDelay: `${index * 0.1}s` }} onClick={() => handlePhotoClick(index)}>
-              <img src={url} className={styles.photo} />
+              <img src={formatImgUrl(url)} className={styles.photo} />
             </div>
           ))}
         </div>
