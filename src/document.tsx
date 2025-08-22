@@ -12,7 +12,7 @@ export default function Document() {
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
-        <title>10.2 婚礼</title>
+        <title>tr & yy 婚礼</title>
         <Meta />
         <Title />
         <Links />

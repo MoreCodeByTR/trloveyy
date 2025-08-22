@@ -94,6 +94,9 @@ export default function WeddingPage() {
                 <div style={{ position: 'absolute', top: '0px', right: '-60px' }}>
                   <img src="https://wx-love-img.afunapp.com/FnML4Rrd2c5InXAv60yskq2XXPG5" alt="logo" width={100} />
                 </div>
+                <div className={styles.logo}>
+                  <img src="https://wx-love-img.afunapp.com/Fl2OKtGeq4o6lJacMBm8Ejkx65J4" alt="logo" height={200} />
+                </div>
               </div>
             ) : (
               <div className={`${styles.menuGrid} ${showMenus ? styles.show : ''}`}>

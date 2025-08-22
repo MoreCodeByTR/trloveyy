@@ -316,6 +316,16 @@
   }
 }
 
+.logo {
+  position: absolute;
+  top: 60px;
+  left: 200px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   .container {
@@ -391,6 +401,11 @@
     padding: 10px 20px;
     font-size: 0.9rem;
   }
+
+  .logo {
+    top: 100px;
+    left: -40px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -454,6 +469,11 @@
   .menuSubtitle {
     font-size: 0.75rem;
   }
+
+  .logo {
+    top: 100px;
+    left: -40px;
+  }
 }
 
 /* 超小屏幕设备优化 */
@@ -485,6 +505,11 @@
   
   .content {
     padding: 10px;
+  }
+
+  .logo {
+    top: 100px;
+    left: -40px;
   }
 }
 
