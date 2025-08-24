@@ -3,16 +3,9 @@ import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import styles from './index.module.css';
 import { history } from 'ice';
-import FallbackLightbox, { PhotoItem } from '@/components/FallbackLightbox';
+import FallbackLightbox from '@/components/FallbackLightbox';
 
-import photo01 from '@/assets/ps/01.png';
-import photo02 from '@/assets/ps/02.png';
-import photo03 from '@/assets/ps/03.png';
-import photo04 from '@/assets/ps/04.png';
-import photo05 from '@/assets/ps/05.png';
-import photo06 from '@/assets/ps/06.png';
-import photo07 from '@/assets/ps/07.png';
-import photo08 from '@/assets/ps/08.png';
+import { formatImgUrl } from '@/utils';
 
 export default function WeddingphotoUrlsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -88,7 +81,7 @@ export default function WeddingphotoUrlsPage() {
               <div className={styles.photoThumb}>
                 <img
                   className={styles.photoImage}
-                  src={photo.src}
+                  src={formatImgUrl(photo.src)}
                   alt={photo.title}
                   loading="lazy"
                   onError={(e) => {
@@ -125,7 +118,7 @@ export default function WeddingphotoUrlsPage() {
             open={openIndex !== null}
             close={handleLightboxClose}
             index={openIndex ?? 0}
-            slides={photoUrls.map((photo) => ({ src: photo.src }))}
+            slides={photoUrls.map((photo) => ({ src: formatImgUrl(photo.src) }))}
             // 移动端优化配置
             carousel={{
               finite: true,
