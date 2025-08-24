@@ -7,6 +7,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
 .header {
   text-align: center;
   margin-bottom: 60px;
@@ -17,29 +18,17 @@
   font-weight: 300;
   margin: 0 0 20px 0;
   color: #2c3e50;
-  opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.title.loaded {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .subtitle {
   font-size: 1.3rem;
   margin: 0;
   color: #7f8c8d;
-  opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.2s;
-}
-
-.subtitle.loaded {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .content {

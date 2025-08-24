@@ -14,7 +14,7 @@ import photo06 from '@/assets/ps/06.png';
 import photo07 from '@/assets/ps/07.png';
 import photo08 from '@/assets/ps/08.png';
 
-export default function WeddingPhotosPage() {
+export default function WeddingphotoUrlsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [lightboxError, setLightboxError] = useState(false);
@@ -32,20 +32,26 @@ export default function WeddingPhotosPage() {
     }
   }, []);
 
-  // 目前资源示例仅有 01.png，这里重复使用以示例布局。后续可直接扩充为多张不同图片。
-  const photos: PhotoItem[] = useMemo(
-    () => [
-      { id: 1, title: '婚纱照 1', description: '浪漫的婚纱摄影', src: photo01 },
-      { id: 2, title: '婚纱照 2', description: '唯美的光影瞬间', src: photo02 },
-      { id: 3, title: '婚纱照 3', description: '温柔与笑意', src: photo03 },
-      { id: 4, title: '婚纱照 4', description: '自然与纯粹', src: photo07 },
-      { id: 5, title: '婚纱照 5', description: '彼此的眼神', src: photo04 },
-      { id: 6, title: '婚纱照 6', description: '细节与质感', src: photo05 },
-      { id: 7, title: '婚纱照 7', description: '浪漫的婚纱摄影', src: photo06 },
-      { id: 8, title: '婚纱照 8', description: '温柔与笑意', src: photo08 },
-    ],
-    [],
-  );
+  const photoUrls = useMemo(() => {
+    return [
+      { id: 1, title: '婚纱照1', description: '前世今生', src: 'https://wx-love-img.afunapp.com/Fj58oX2pZIKLvO0PsQEVq0YXEdQa' },
+      { id: 2, title: '婚纱照2', description: '喜结良缘', src: 'https://wx-love-img.afunapp.com/FtcREsHOrSOeih8rcA9Y9_mKVkyc' },
+      { id: 3, title: '婚纱照3', description: '相约今生', src: 'https://wx-love-img.afunapp.com/Fjb6iG1zF0BOsEVm3eIcbSDrPO6w' },
+      { id: 4, title: '婚纱照4', description: '白头偕老', src: 'https://wx-love-img.afunapp.com/FmhW1z2iWaroJKhjoh_I6FLho-cC' },
+      { id: 5, title: '婚纱照5', description: '执子之手', src: 'https://wx-love-img.afunapp.com/FjSoVjOQcRW48aEjiJLffFKPVu8N' },
+      { id: 6, title: '婚纱照6', description: '与子偕老', src: 'https://wx-love-img.afunapp.com/FqpdALQApUBvrnBs_mQqptu1017S' },
+      { id: 7, title: '婚纱照7', description: '相濡以沫', src: 'https://wx-love-img.afunapp.com/FqpxTwHm7XnDCXSawXq2UTyNylUM' },
+      { id: 8, title: '婚纱照8', description: '相敬如宾', src: 'https://wx-love-img.afunapp.com/FknM9RIaljsxkeCq6hyTM-eJFIYe' },
+      { id: 9, title: '婚纱照9', description: '相依相伴', src: 'https://wx-love-img.afunapp.com/FnLAJlS-qH17VXDeRdyjtjABzfO7' },
+      { id: 10, title: '婚纱照10', description: '永结同心', src: 'https://wx-love-img.afunapp.com/FocelcZwWbCkVhKtTQqiPV6rfl7s' },
+      { id: 11, title: '婚纱照11', description: '一生一世', src: 'https://wx-love-img.afunapp.com/FpeoDZDcckvSla2KLJAshYIh3Eyv' },
+      { id: 12, title: '婚纱照12', description: '不离不弃', src: 'https://wx-love-img.afunapp.com/Fo1Bmkw2F9b7MLwD65atdwBIEIW_' },
+      { id: 13, title: '婚纱照13', description: '幸福美满', src: 'https://wx-love-img.afunapp.com/Fr-U2ilbiy6fPI7eMPwEvIZ_xsUE' },
+      { id: 14, title: '婚纱照14', description: '以爱之名', src: 'https://wx-love-img.afunapp.com/FtHDoQoC2hfI1KA_IMlydzK0haGU' },
+      { id: 15, title: '婚纱照15', description: '有你真甜', src: 'https://wx-love-img.afunapp.com/FueQAE3BmQgTxuWmeYcacbR_gJ8n' },
+      { id: 16, title: '婚纱照16', description: '情窦初开', src: 'https://wx-love-img.afunapp.com/FjoQHPwzL_4lStTR1HXWIGMm8rOU' },
+    ];
+  }, []);
 
   const handlePhotoClick = useCallback((index: number) => {
     try {
@@ -72,15 +78,13 @@ export default function WeddingPhotosPage() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.header}>
+        <p className={`${styles.subtitle}`}>婚纱照</p>
+      </div>
       <div className={styles.content}>
         <div className={`${styles.photoGrid} ${isLoaded ? styles.loaded : ''}`}>
-          {photos.map((photo, index) => (
-            <div
-              key={photo.id}
-              className={styles.photoCard}
-              style={{ animationDelay: `${index * 0.08}s` }}
-              onClick={() => handlePhotoClick(index)}
-            >
+          {photoUrls.map((photo, index) => (
+            <div key={photo.id} className={styles.photoCard} style={{ animationDelay: `${index * 0.08}s` }} onClick={() => handlePhotoClick(index)}>
               <div className={styles.photoThumb}>
                 <img
                   className={styles.photoImage}
@@ -114,20 +118,14 @@ export default function WeddingPhotosPage() {
 
       {/* 使用备用Lightbox还是原生Lightbox */}
       {useFallback ? (
-        <FallbackLightbox
-          isOpen={openIndex !== null}
-          onClose={handleLightboxClose}
-          currentPhoto={openIndex ?? 0}
-          photos={photos}
-          onPhotoChange={setOpenIndex}
-        />
+        <FallbackLightbox isOpen={openIndex !== null} onClose={handleLightboxClose} currentPhoto={openIndex ?? 0} photos={photoUrls} onPhotoChange={setOpenIndex} />
       ) : (
         !lightboxError && (
           <Lightbox
             open={openIndex !== null}
             close={handleLightboxClose}
             index={openIndex ?? 0}
-            slides={photos.map((photo) => ({ src: photo.src }))}
+            slides={photoUrls.map((photo) => ({ src: photo.src }))}
             // 移动端优化配置
             carousel={{
               finite: true,
@@ -141,7 +139,7 @@ export default function WeddingPhotosPage() {
             // 渲染配置
             render={{
               buttonPrev: openIndex === 0 ? () => null : undefined,
-              buttonNext: openIndex === photos.length - 1 ? () => null : undefined,
+              buttonNext: openIndex === photoUrls.length - 1 ? () => null : undefined,
             }}
             // 移动端特定配置
             {...(isMobile && {
@@ -164,4 +162,3 @@ export default function WeddingPhotosPage() {
     </div>
   );
 }
-

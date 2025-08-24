@@ -12,7 +12,6 @@ const dailyPhotos = [
   'https://wx-love-img.afunapp.com/FjCU_UrGMa7Pexc6fGLuBOKPYHtU',
   'https://wx-love-img.afunapp.com/Fuhvq2i8FNbMO6j6ZUtiLtGOoOoJ',
   'https://wx-love-img.afunapp.com/FnbIkmmiVMyQh5ax1qG3f5V5HPig',
-  'https://wx-love-img.afunapp.com/Fg3z69kHqRMIjRLzcy8uHPvEH81u',
   'https://wx-love-img.afunapp.com/lkjz4KyPgXVEBP6yXQ96ReWK92Jo',
   'https://wx-love-img.afunapp.com/lugofrqiXXjokTrs7hbOowyISItQ',
   'https://wx-love-img.afunapp.com/FldndRwcnllinoRoZDz8A-XFonHD',
@@ -50,7 +49,7 @@ export default function OurStoryPage() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1 className={`${styles.title} ${isLoaded ? styles.loaded : ''}`}>恋爱日常</h1>
+        <h1 className={`${styles.title} ${isLoaded ? styles.loaded : ''}`}>你好，旧时光</h1>
         <p className={`${styles.subtitle} ${isLoaded ? styles.loaded : ''}`}>记录我们在一起的每一个美好瞬间</p>
       </div>
 

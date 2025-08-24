@@ -18,8 +18,6 @@ export const useMusic = () => useContext(MusicContext);
 
 const Layout = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   // 婚礼音乐URL - 您可以根据需要更换
@@ -29,17 +27,10 @@ const Layout = () => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const updateTime = () => setCurrentTime(audio.currentTime);
-    const updateDuration = () => setDuration(audio.duration);
     const handleEnded = () => setIsPlaying(false);
-
-    audio.addEventListener('timeupdate', updateTime);
-    audio.addEventListener('loadedmetadata', updateDuration);
     audio.addEventListener('ended', handleEnded);
 
     return () => {
-      audio.removeEventListener('timeupdate', updateTime);
-      audio.removeEventListener('loadedmetadata', updateDuration);
       audio.removeEventListener('ended', handleEnded);
     };
   }, []);
@@ -73,7 +64,7 @@ const Layout = () => {
         {/* 全局音乐播放器 */}
         <div className={styles.musicPlayer}>
           <div className={`${styles.musicIcon} ${isPlaying ? styles.playing : ''}`} onClick={togglePlay}>
-            <img src="https://wx-love-img.afunapp.com/Fn4wTVV0gyPHIjtkkWFXBSoi7zva" width={28} height={28} alt="播放" />
+            <img src="https://wx-love-img.afunapp.com/FrG6qbCQGuRgkJZMnf7wmtUxSBPI" width={28} height={28} alt="播放" />
           </div>
         </div>
         {/* 音频元素 */}

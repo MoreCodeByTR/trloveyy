@@ -37,7 +37,7 @@ export default function WeddingPage() {
     {
       id: 'our-story',
       title: 'Our Story',
-      subtitle: '我们的故事',
+      subtitle: '你好，旧时光',
       icon: 'https://wx-love-img.afunapp.com/FjVDrmUmwJc4OLNEPtXZzoXNw0m2',
       link: '/our-story',
     },

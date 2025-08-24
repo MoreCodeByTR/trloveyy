@@ -22,6 +22,7 @@ export default function WeddingDayPage() {
     address: '武穴市大法寺镇双庙村田仕润垸',
     phone: '18671358292',
     contact: '田睿',
+    timeInfo: '晚宴 16:00',
   };
 
   const brideInfo = {
@@ -29,6 +30,7 @@ export default function WeddingDayPage() {
     address: '蕲春县彭思镇彭思村',
     phone: '13872352191',
     contact: '游燕',
+    timeInfo: '午宴 12:00',
   };
 
   const handleCopyAddress = async (address: string) => {
@@ -64,12 +66,20 @@ export default function WeddingDayPage() {
           <div className={styles.infoCard}>
             <div className={styles.infoHeader}>
               <h2 className={styles.infoTitle}>婚礼信息</h2>
-              <div className={styles.infoIcon}>💒</div>
+              <div className={styles.infoIcon}>
+                <img style={{ borderRadius: '4px' }} src="https://wx-love-img.afunapp.com/FnML4Rrd2c5InXAv60yskq2XXPG5" height={60} />
+              </div>
             </div>
 
             <div className={styles.infoContent}>
               <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>日期：{weddingInfo.date} {weddingInfo.time}</span>
+                <div className={styles.loverInfo}>
+                  <span>新郎：{groomInfo.contact}</span>
+                  <span>新娘：{brideInfo.contact}</span>
+                </div>
+              </div>
+              <div className={styles.infoRow}>
+                <span className={styles.infoLabel}>日期：{weddingInfo.date}</span>
               </div>
               <div className={styles.infoRow}>
                 <span className={styles.infoLabel}>地点：湖北 黄冈</span>
@@ -82,7 +92,9 @@ export default function WeddingDayPage() {
               <h3 className={styles.locationTitle}>
                 {brideInfo.title}
               </h3>
-              <div className={styles.locationIcon}>🏠</div>
+              <div className={styles.locationIcon}>
+                <img src="https://wx-love-img.afunapp.com/FoFF1T6LGQ2dFHl6KmjZwRyZlQYr" width={60} />
+              </div>
             </div>
             <div className={styles.locationContent}>
               <div className={styles.addressContainer}>
@@ -93,6 +105,12 @@ export default function WeddingDayPage() {
                 <span onClick={() => handleCopyAddress(brideInfo.address)}>
                   <img src="https://wx-love-img.afunapp.com/FgbnngKRt5fQGxiIwLaiUtwqymww" width={20} />
                 </span>
+              </div>
+              <div className={styles.timeInfo}>
+                <span style={{ marginRight: '6px' }}>
+                  <img src="https://wx-love-img.afunapp.com/FhH20gG-IZPEOpDAxVN97HiB3WZr" width={20} />
+                </span>
+                <span>{brideInfo.timeInfo}</span>
               </div>
               <div className={styles.locationRow}>
                 <span>
@@ -113,7 +131,9 @@ export default function WeddingDayPage() {
           <div className={`${styles.locationCard} ${isLoaded ? styles.loaded : ''}`}>
             <div className={styles.locationHeader}>
               <h3 className={styles.locationTitle}>{groomInfo.title}</h3>
-              <div className={styles.locationIcon}>🏠</div>
+              <div className={styles.locationIcon}>
+                <img src="https://wx-love-img.afunapp.com/FrOP_DsPLrG08vL5fQHwLhm9Rl_7" width={60} />
+              </div>
             </div>
             <div className={styles.locationContent}>
               <div className={styles.addressContainer}>
@@ -124,6 +144,12 @@ export default function WeddingDayPage() {
                 <span onClick={() => handleCopyAddress(groomInfo.address)}>
                   <img src="https://wx-love-img.afunapp.com/FgbnngKRt5fQGxiIwLaiUtwqymww" width={20} />
                 </span>
+              </div>
+              <div className={styles.timeInfo}>
+                <span style={{ marginRight: '6px' }}>
+                  <img src="https://wx-love-img.afunapp.com/FhH20gG-IZPEOpDAxVN97HiB3WZr" width={20} />
+                </span>
+                <span>{groomInfo.timeInfo}</span>
               </div>
               <div className={styles.locationRow}>
                 <span>

@@ -139,7 +139,7 @@
 .locationRow {
   display: flex;
   align-items: flex-start;
-  gap: 15px;
+  gap: 6px;
 }
 
 .locationLabel {
@@ -195,10 +195,25 @@
   font-size: 1.1rem;
 }
 
+.loverInfo {
+  font-weight: 600;
+  color: #7f8c8d;
+  display: flex;
+  font-size: 1.1rem;
+  gap: 40px;
+}
+
 .infoValue {
   color: #2c3e50;
   font-size: 1.1rem;
   flex: 1;
+}
+
+.timeInfo {
+  display: flex;
+  align-items: flex-start;
+  font-size: 1.1rem;
+  font-weight: normal;
 }
 
 .addressContainer {

@@ -14,10 +14,12 @@ export default function VlogPage() {
             婚礼视频记录
           </p>
         </div>
-
+        <div>
+          更新中...
+        </div>
         <div className={styles.videoContainer}>
-          <VideoPlayer src="http://s2.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo.mp4" />
-          <VideoPlayer src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" />
+          {/* <VideoPlayer src="http://s2.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo.mp4" />
+          <VideoPlayer src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" /> */}
         </div>
       </div>
       <div className={styles.backButton} onClick={() => history?.push('/?showMenus=true')}>
