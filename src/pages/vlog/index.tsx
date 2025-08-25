@@ -15,7 +15,7 @@ export default function VlogPage() {
           </p>
         </div>
         <div>
-          更新中...
+          未完待续,更新中...
         </div>
         <div className={styles.videoContainer}>
           {/* <VideoPlayer src="http://s2.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo.mp4" />
