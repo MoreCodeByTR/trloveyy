@@ -35,11 +35,11 @@ export default function WeddingPage() {
       link: '/wedding-day',
     },
     {
-      id: 'our-story',
+      id: 'daily-photos',
       title: 'Our Story',
       subtitle: '你好，旧时光',
       icon: 'https://wx-love-img.afunapp.com/FjVDrmUmwJc4OLNEPtXZzoXNw0m2',
-      link: '/our-story',
+      link: '/daily-photos',
     },
     {
       id: 'wedding-photos',
