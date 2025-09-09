@@ -8,14 +8,11 @@ import FallbackLightbox from '@/components/FallbackLightbox';
 import { formatImgUrl } from '@/utils';
 
 export default function WeddingphotoUrlsPage() {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [lightboxError, setLightboxError] = useState(false);
   const [useFallback, setUseFallback] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
-
     // 检测移动端并自动使用备用方案
     if (typeof window !== 'undefined') {
       const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -77,14 +74,13 @@ export default function WeddingphotoUrlsPage() {
         <p className={`${styles.subtitle}`}>你好，旧时光</p>
       </div>
       <div className={styles.content}>
-        <div className={`${styles.photoGrid} ${isLoaded ? styles.loaded : ''}`}>
+        <div className={styles.photoGrid}>
           {photoUrls.map((photo, index) => (
             <div key={photo.id} className={styles.photoCard} style={{ animationDelay: `${index * 0.08}s` }} onClick={() => handlePhotoClick(index)}>
               <div className={styles.photoThumb}>
                 <img
                   className={styles.photoImage}
                   src={formatImgUrl(photo.src)}
-                  loading="lazy"
                   onError={(e) => {
                     console.error(`图片加载失败: ${photo.src}`);
                     e.currentTarget.style.display = 'none';
@@ -101,13 +97,6 @@ export default function WeddingphotoUrlsPage() {
           ))}
         </div>
       </div>
-
-      {/* 错误提示 */}
-      {lightboxError && (
-        <div className={styles.errorMessage}>
-          <p>图片查看器加载失败，请点击图片直接查看</p>
-        </div>
-      )}
 
       {/* 使用备用Lightbox还是原生Lightbox */}
       {useFallback ? (
