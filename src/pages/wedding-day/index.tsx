@@ -14,7 +14,7 @@ export default function WeddingDayPage() {
 
   const weddingInfo = {
     date: '2025年10月2日',
-    time: '16:00',
+    time: '17:00',
   };
 
   const groomInfo = {
@@ -22,7 +22,7 @@ export default function WeddingDayPage() {
     address: '武穴市大法寺镇双庙村田仕润垸',
     phone: '18671358292',
     contact: '田睿',
-    timeInfo: '晚宴 16:00',
+    timeInfo: '晚宴 17:00',
   };
 
   const brideInfo = {
